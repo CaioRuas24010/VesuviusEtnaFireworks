@@ -1,0 +1,54 @@
+% Codificação e idioma
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[portuguese]{babel}
+
+% Pacotes adicionais
+\usepackage{wrapfig}
+\usepackage[margin=1in]{geometry}
+\usepackage{xcolor}
+\pagecolor{yellow!10}
+\definecolor{borda}{HTML}{971d21}
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\usepackage{anyfontsize}
+\usepackage{tikz}
+\usepackage{eso-pic}
+\usepackage{titlesec}
+
+% Configurações dos títulos
+\titleformat{\chapter}[display]
+  {\normalfont\bfseries\Huge\centering}
+  {\chaptername\ \thechapter}
+  {20pt}
+  {\Huge}
+
+% Redefinindo o formato do título das partes
+\titleformat{\part}
+  {\normalfont\Huge\bfseries\centering} % Formato da etiqueta e do título
+  {\partname~\thepart}                  % Texto da etiqueta (ex: Parte I)
+  {20pt}                                 % Espaçamento entre a etiqueta e o título
+  {\Huge}                               % Formato aplicado ao título
+
+% Ajustando o espaçamento antes e depois do título da parte
+\titlespacing*{\chapter}
+  {0pt}      % Espaço à esquerda
+  {-50pt}    % Espaço antes do título (negativo para reduzir)
+  {20pt}     % Espaço depois do título
+% Definir a margem interna desejada
+
+\newcommand{\bordamargem}{1cm}
+
+\AddToShipoutPicture{%
+  \begin{tikzpicture}[remember picture, overlay]
+    % Desenhar a borda vermelha com margem interna
+    \draw[borda, line width=1pt]
+      ([xshift=\bordamargem, yshift=-\bordamargem]current page.north west) rectangle
+      ([xshift=-\bordamargem, yshift=\bordamargem]current page.south east);
+    % Adicionar pontos nas extremidades com margem interna
+    \fill[borda] ([xshift=\bordamargem, yshift=-\bordamargem]current page.north west) circle (3pt);
+    \fill[borda] ([xshift=-\bordamargem, yshift=-\bordamargem]current page.north east) circle (3pt);
+    \fill[borda] ([xshift=\bordamargem, yshift=\bordamargem]current page.south west) circle (3pt);
+    \fill[borda] ([xshift=-\bordamargem, yshift=\bordamargem]current page.south east) circle (3pt);
+  \end{tikzpicture}
+}

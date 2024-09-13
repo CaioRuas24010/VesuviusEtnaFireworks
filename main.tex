@@ -1,0 +1,39 @@
+\documentclass{book}
+
+\input{Preâmbulo}
+
+\begin{document}
+
+\frontmatter % Páginas preliminares
+
+\title{My Book}
+\author{Your Name}
+
+\maketitle{}
+
+\tableofcontents{}
+
+\chapter{Prefácio}
+
+\mainmatter % Corpo principal do livro
+
+\part{Primeira Parte}
+
+\include{Capítulos/Capítulo 1}
+
+\include{Capítulos/Capítulo 2}
+
+
+\backmatter % Seção final
+
+\appendix % Apêndices (opcional)
+
+\chapter{Apêndice A}
+Inclua informações adicionais que complementam o conteúdo principal do livro.
+
+\bibliographystyle{plain} % Estilo da bibliografia
+\bibliography{referencias} % Inclui a bibliografia
+
+\printindex % Imprime o índice remissivo (se houver)
+
+\end{document}
